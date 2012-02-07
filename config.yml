@@ -1,48 +1,32 @@
 ---
-  title: "MILSON"
+  title: "Please Change Title"
   groups: 
     - 
-      pathname: "mailing_list"
+      pathname: "installation"
       documents: 
         - 
-          filename: "list.md"
-          title: "Google Groups"
-          id: "list"
-      title: "Mailing List"
-      id: "mailing_list"
+          title: "NodeJS"
+          id: "nodejs"
+          filename: "nodejs.md"
+        - 
+          title: "Example Project"
+          id: "example-project"
+          filename: "example-project.md"
+      title: "Installation"
+      id: "installation"
     - 
-      pathname: "activities"
+      pathname: "usage"
       documents: 
         - 
-          filename: "current.md"
-          title: "Current"
-          id: "current"
+          title: "Branding"
+          id: "branding"
+          filename: "branding.md"
         - 
-          filename: "past.md"
-          title: "Past"
-          id: "past"
-      title: "Activities"
-      id: "activities"
-    - 
-      pathname: "observations"
-      private: true
-      documents: 
-        - 
-          filename: "observations.md"
-          title: "observations"
-          id: "observations"
-      title: "Observations"
-      id: "observations"
-    - 
-      pathname: "transmission"
-      private: true
-      documents: 
-        - 
-          filename: "transmission.md"
-          title: "transmission"
-          id: "transmission"
-      title: "Transmission"
-      id: "transmission"
+          title: "Publishing"
+          id: "publishing"
+          filename: "publishing.md"
+      title: "Usage"
+      id: "usage"
   templates: 
     languages: 
       - "xml"

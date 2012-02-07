@@ -1,11 +1,11 @@
 {
-  "author": "Eric Jacobs <eric@chomp.us> (http://techosaur.us/)",
+  "author": "John Doe <john.doe@email.com> (http://fb.com/john.doe)",
   "name": "documentation-client",
-  "description": "Browser dependencies for the MILSON documentaiton site.",
+  "description": "Browser dependencies for the ACME documentaiton site.",
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/milson/milson-org.git"
+    "url": "git://github.com/ACME/documentation.git"
   },
   "engines": {
     "node": ">= 0.2"

@@ -4,18 +4,21 @@
 //- 2. Be sure you add the appropriate menu items under the li.menu_major. Just follow the pattern.
 
 head
-  title MILSON - Military Standards Object Notation
+  title ACME Documentation
   script(src="./pakmanaged.js")
   link(rel="stylesheet", type="text/css", href="style.css")
-  meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
-  meta(http-equiv="X-UA-Compatible", content="chrome=1")
 
 body
   #header
     .top_wrap
-      img#logo(src="images/logo.png", alt="Military Standards Object Notation")
+      img#logo(src="images/logo.png", alt="ACME")
+      .page_head
+        | ACME API Documentation
 
   #container
+    // Yes, we know that tables are a no-no for style.
+    // We have the technology
+    // We can (and will) rebuild him
     table.doc_columns
       tbody
         tr
@@ -24,32 +27,18 @@ body
               ul
                 include links
 
-
           td.content_column
-            //- include mailing
-                include documents
-            .cwrapper(data-map='mailing_list')
-              h1#mailing_list Mailing List
-              #list.in_menu
-                h2 Google Groups
-                //- include mailing_list/list.html
-                include mailing
-            .cwrapper(data-map='activities')
-              h1#activities Activities
-              #current.in_menu
-                h2 Current
-                include activities/current.html
-              #past.in_menu
-                h2 Past
-                include activities/past.html
+            include documents
 
   #footer
     .top_wrap
       #flogo
-        img(src="images/logo.png", alt="Military Standards Object Notation")
-        #copyright © 2012
+        img(src="images/logo.png", alt="ACME")
+        #copyright © YYYY ACME
       ul#footie_pajamas
         li
-          a(href="http://milson.org/") Home
+          //- don't you dare use a www. prefix
+          //- by default. I will gut you.
+          a(href="http://acme.com/") ACME Home
         li
-          | Email: ajoneal@spotterrf.com
+          | Email: dev-support@acme.com

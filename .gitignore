@@ -1,7 +1,7 @@
-.DS_*
 node_modules
 config.yml
-.*.sw*
+*.swp
+*.swo
 *.html
 documents.jade
 links.jade
