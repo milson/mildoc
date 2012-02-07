@@ -18,8 +18,7 @@
     "jade": "0.20.x",
     "yaml": "0.2.x",
     "json2yaml": "1.x",
-    "forEachAsync": "2.x",
-    "connect": "1.8.x"
+    "forEachAsync": "2.x"
   },
   "devDependencies": {}
 }
