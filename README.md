@@ -1,5 +1,32 @@
 This is the documentation generator which compiles the <http://milson.org> documentation pages.
 
+Copying the MILDOC template for your own documentation
+===
+
+Create your repository
+---
+
+    mkdir my-documentation-project
+    cd my-documentation-project
+    git init
+    echo "My Documentation Project" > README.md
+    git add README.md
+    git commit -m "initial commit"
+
+Merge the mildoc template into your site
+---
+
+    git remote add mildoc git://github.com/milson/mildoc.git
+    git fetch mildoc
+    git pull mildoc template-only
+
+Updating
+---
+
+This will update only the build system, not the templates
+
+    git pull mildoc build-sys-only
+
 Installation
 ===
 
