@@ -1,0 +1,80 @@
+div, pre, p {
+  page-break-inside: avoid;  
+}
+
+pre {
+  font-family: Courier,monospace;
+  width: 100%;
+  margin-left: 5px;
+  margin-bottom: 5px;
+
+  /* Wrap lines in code blocks: */
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+code {
+  color: #000;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: #000;
+  background-color: #fff;
+  background: url(hack/to/make/the/print/view/work.jpg);
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.page_head {
+  color: #000;
+  margin-left: 0;
+}
+
+#header {
+  height: 80px;
+  position: relative;
+  padding: 15px 35px 3px 35px;
+  margin: 0;
+  color: #000;
+/*
+  background-image: url(images/header_zebra.png);
+  background-repeat-x: repeat;
+  background-repeate-y: no-repeat;
+  background-position-x: 0%;
+  background-position-y: 0%;
+*/
+  background-color: #fff;
+  z-index: 100;
+}
+
+#container {
+  width: 100%;
+  padding: 0 35px 0 35px;
+  margin: 0 auto 0 auto;
+  position: relative;
+}
+
+.menu_column {
+  display: none;
+}
+
+.content_column {
+  padding: 0;
+  width: 100%;
+  border: 0;
+  vertical-align: top;
+  line-height: 1.08em;
+  font-size: 12pt;
+}
+
+.doc_columns {
+  width: 90%;
+}

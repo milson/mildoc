@@ -46,6 +46,7 @@ find "${SRC_DIR}/" -iname '*.html' -exec rm {} \;
 echo "Converting less to css..."
 touch "${SRC_DIR}/style.less"
 lessc "${SRC_DIR}/style.less" > "${BLD_DIR}/style.css"
+lessc "${SRC_DIR}/print.less" > "${BLD_DIR}/print.css"
 rsync -avP "${SRC_DIR}/static/" "${BLD_DIR}/" > /dev/null
 
 echo "Building client app..."
