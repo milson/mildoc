@@ -6,10 +6,10 @@ Copying the MILDOC template for your own documentation
 Create your repository
 ---
 
-    mkdir my-documentation-project
-    cd my-documentation-project
+    mkdir my-project
+    cd my-project
     git init
-    echo "My Documentation Project" > README.md
+    echo "My Project" > README.md
     git add README.md
     git commit -m "initial commit"
 
@@ -19,6 +19,7 @@ Merge the mildoc template into your site
     git remote add mildoc git://github.com/milson/mildoc.git
     git fetch mildoc
     git pull mildoc template-only
+    # creates `./mildoc`
 
 Updating
 ---
@@ -36,11 +37,61 @@ Installation
 
   0. Build the example project
 
+        cd mildoc
         ./build.sh
         cd public
         served 7755
 
   0. View the built project at <http://localhost:7755>
+
+  0. And when your ready to push to **github pages**
+
+        cd my-project
+        git checkout master
+        
+        
+        # MAKE SURE everything is COMMITTED
+        # uncommited files will be DELETED
+
+
+        cd mildoc
+        ./build.sh
+        mv mildoc/public/ /tmp/my-project_mildoc
+        
+        git symbolic-ref HEAD refs/heads/gh-pages
+        rm .git/index
+        git clean -fdx
+        mv /tmp/my-project_mildoc/* ./
+        
+        git add ./
+        git commit -m "initial commit"
+        git push origin -u gh-pages
+
+        # tag your documentation according to your current software
+        git tag docs-v1.0.0
+        git push --tags
+        
+  0. And when you want to **update your github pages**
+
+        # Build the latest docs from master
+        cd my-project
+        git checkout master
+        cd mildoc
+        ./build.sh
+        rm -rf /tmp/my-project_mildoc
+        mv mildoc/public/ /tmp/my-project_mildoc
+        
+        # Replace the current docs with the latest
+        git chekout gh-pages
+        git rm -f ./
+        mv /tmp/my-project_mildoc/* ./
+        git add ./
+        git commit -m "updated docs to corresponding v1.1.3 of software"
+        
+        # update your tag
+        git tag docs-v1.1.3
+        git push --tags
+
 
 How it Works
 ===
