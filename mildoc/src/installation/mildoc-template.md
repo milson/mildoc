@@ -1,6 +1,4 @@
-This is the documentation generator which compiles the <http://milson.org> documentation pages.
-
-Copying the MILDOC template for your own documentation
+Using MILDOC in your project
 ===
 
 Create your repository
@@ -61,14 +59,15 @@ Using Github Pages
 
   0. Create (or checkout) the `gh-pages` branch
 
-    MAKE SURE everything is COMMITTED uncommited files will be DELETED
+        # MAKE SURE everything is COMMITTED uncommited files will be DELETED
 
         git status
         git symbolic-ref HEAD refs/heads/gh-pages
         rm .git/index
         git clean -fdx
         
-    Or if you completed that step previously
+
+        # Or if you completed that step previously
     
         git chekout gh-pages
 
