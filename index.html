@@ -1,5 +1,5 @@
 <!DOCTYPE html><head><title>ACME Documentation</title><script src="./pakmanaged.js"></script><link rel="stylesheet" type="text/css" href="style.css"><link rel="stylesheet" type="text/css" media="print" href="print.css"></head><body><div id="header"><div class="top_wrap"><img id="logo" src="images/logo.png" alt="ACME"><div class="page_head">ACME API Documentation
-</div></div></div><div id="container"><!-- Yes, we know that tables are a no-no for style.--><!-- We have the technology--><!-- We can (and will) rebuild him--><table class="doc_columns"><tbody><tr><td class="menu_column"><div class="menu"><ul><li id="installation_mwrap" class="menu_major"><a href="#installation" class="top_style">Installation<ul><li class="menu_sub"><a href="#nodejs">NodeJS</a></li><li class="menu_sub"><a href="#example-project">Example Project</a></li></ul></a></li><li id="usage_mwrap" class="menu_major"><a href="#usage" class="top_style">Usage<ul><li class="menu_sub"><a href="#branding">Branding</a></li><li class="menu_sub"><a href="#publishing">Publishing</a></li><li class="menu_sub"><a href="#test-jade">test-jade</a></li></ul></a></li></ul></div></td><td class="content_column"><div data-map="installation" class="cwrapper"><h1 id="installation">Installation</h1><div id="nodejs" class="in_menu"><h2>NodeJS</h2><p>The documentation platform runs on Linux, OS X, and Windows using NodeJS.</p>
+</div></div></div><div id="container"><!-- Yes, we know that tables are a no-no for style.--><!-- We have the technology--><!-- We can (and will) rebuild him--><table class="doc_columns"><tbody><tr><td class="menu_column"><div class="menu"><ul><li id="installation_mwrap" class="menu_major"><a href="#installation" class="top_style">Installation<ul><li class="menu_sub"><a href="#nodejs">NodeJS</a></li><li class="menu_sub"><a href="#mildoc-template">MILDOC Template</a></li><li class="menu_sub"><a href="#example-project">Example Project</a></li></ul></a></li><li id="usage_mwrap" class="menu_major"><a href="#usage" class="top_style">Usage<ul><li class="menu_sub"><a href="#branding">Branding</a></li><li class="menu_sub"><a href="#publishing">Publishing</a></li><li class="menu_sub"><a href="#test-jade">test-jade</a></li></ul></a></li></ul></div></td><td class="content_column"><div data-map="installation" class="cwrapper"><h1 id="installation">Installation</h1><div id="nodejs" class="in_menu"><h2>NodeJS</h2><p>The documentation platform runs on Linux, OS X, and Windows using NodeJS.</p>
 
 <h3>Try this first</h3>
 
@@ -30,7 +30,72 @@ Set-ExecutionPolicy Unrestricted
 iex ((<span class="keyword">new</span>-object net.webclient).DownloadString(&quot;http:<span class="comment">//bit.ly/psChocInstall&quot;))</span>
 
 <span class="preprocessor"># Install NodeJS</span>
-cinst nodejs</code></pre></div><div id="example-project" class="in_menu"><h2>Example Project</h2><p>This site itself is an example project.</p>
+cinst nodejs</code></pre></div><div id="mildoc-template" class="in_menu"><h2>MILDOC Template</h2><h1>Using MILDOC in your project</h1>
+
+<h2>Create your repository</h2>
+
+<pre><code>mkdir my-project
+cd my-project
+git init
+<span class="keyword">echo</span> &quot;My Project&quot; &gt; README.md
+git add README.md
+git commit -m &quot;initial commit&quot;</code></pre>
+
+<h2>Merge the mildoc template into your site</h2>
+
+<pre><code>git remote add mildoc git:<span class="comment">//github.com/milson/mildoc.git</span>
+git fetch mildoc
+git pull mildoc <span class="keyword">template</span>-only
+<span class="preprocessor"># creates `./mildoc`</span></code></pre>
+
+<h2>Updating</h2>
+
+<p>This will update only the build system, not the templates</p>
+
+<pre><code>git pull mildoc build-sys-only</code></pre>
+
+<h1>Installation</h1>
+
+<ol><li><p>Install NodeJS (<a href="http://nodejs.org#download">http://nodejs.org#download</a>) and <code>served</code></p><pre><code>npm install -g served</code></pre></li><li><p>Build the example project</p><pre><code>cd mildoc
+./build.sh
+cd <span class="keyword">public</span>
+served <span class="number">7755</span></code></pre></li><li><p>View the built project at <a href="http://localhost:7755">http://localhost:7755</a></p></li></ol>
+
+<h2>Using Github Pages</h2>
+
+<ol><li><p>Go to your project</p><pre><code>cd my-project
+git checkout master</code></pre></li><li><p>Build the latest documentation</p><pre><code>cd mildoc
+./build.sh
+rm -rf /tmp/my-project_mildoc
+mv mildoc/<span class="keyword">public</span> /tmp/my-project_mildoc</code></pre></li><li><p>Create (or checkout) the <code>gh-pages</code> branch</p><pre><code><span class="comment"># MAKE SURE everything is COMMITTED uncommited files will be DELETED</span></code></pre><p>    git status
+    git symbolic-ref HEAD refs/heads/gh-pages
+    rm .git/index
+    git clean -fdx</p><pre><code><span class="comment"># Or if you completed that step previously</span></code></pre><p>    git chekout gh-pages</p></li><li><p>Add the latest built docs</p><pre><code>git rm -rf ./
+mv /tmp/my-project_mildoc/* ./
+git add ./
+git commit -m &quot;docs <span class="keyword">for</span> v1.<span class="number">0.0</span>&quot;
+git push origin -u gh-pages</code></pre></li><li><p>Add a tag that corresponds to the software version</p><pre><code>git tag docs-v1.0.0
+git push --tags</code></pre></li></ol>
+
+<h1>How it Works</h1>
+
+<ol><li>You put your header, footer, logo, etc in <code>src/index.jade</code> </li><li>You put articles in <code>src/some-<span class="keyword">group</span>-name/</code>, <code>src/some-other-<span class="keyword">group</span>-name</code>, etc</li><li>When you run <code>node build.js</code><ul><li>The <code>*.md</code> files in <code>src/some-<span class="keyword">group</span>-name</code> are turned into annotated <code>.html</code><ul><li>you can change which languages should be annotated in <code>config.yml.languages</code></li></ul></li><li><code>config.yml</code> is auto-updated every time you <code>node build.js</code><ul><li>If <code>src/my-<span class="keyword">group</span>/my-doc.md</code> has YAML front matter, or <code>src/my-<span class="keyword">group</span>/my-doc.yml</code> exsits, the defaults are overridden with that data</li></ul></li><li>you can change the order in which groups and documents appear by changing their order in <code>config.yml</code><ul><li>even though it auto-updates, the order you specify will be preserved</li></ul></li><li><code>src/links.jade</code> and <code>src/documents.jade</code> will be produced from the directory scan</li><li><code>src/index.jade</code> will be built to contain ALL of the documents</li></ul></li></ol>
+
+<h1>Scans Directories</h1>
+
+<p>This will scan <code>src</code> and group files by directory.</p>
+
+<p>It will find <code>yml</code> files for each <code>md</code> file (or read the <code>yaml</code> &quot;front matter&quot; header, if found).</p>
+
+<p>All updated meta data is written out to <code>config.yml</code>, where the order can be adjusted as desired.
+However, customizations to <code>title</code> and <code>filename</code> must be done to the accompanying <code>.yml</code> or &quot;front matter&quot;.</p>
+
+<h1>Process Overview</h1>
+
+<p>Implemented *
+Not Implemented -</p>
+
+<ul><li>reads in <code>config.yml</code></li><li>walks the <code>src</code> directory structure</li><li>for each file<ul><li>if file ends in <code>.md</code><ul><li>if file exists in <code>config.yml</code>, load presets</li><li>if file of same name, but ending in <code>yml</code> exsits<ul><li>read in yml</li><li>replace presets, if any</li></ul></li><li>if no presets, use defaults (filename, replace special chars)</li><li>if not exists in <code>config.yml</code>, append to end of list</li></ul></li></ul></li><li>compile jade files</li><li>remove remnant html</li></ul></div><div id="example-project" class="in_menu"><h2>Example Project</h2><p>This site itself is an example project.</p>
 
 <p>Before you go getting fancy, you should make sure that everything is installed properly and working as expected.</p>
 
