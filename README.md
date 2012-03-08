@@ -30,7 +30,9 @@ This will update only the build system, not the templates
 Installation
 ===
 
-  0. Install NodeJS (<http://nodejs.org#download>)
+  0. Install NodeJS (<http://nodejs.org#download>) and `served`
+
+        npm install -g served
 
   0. Build the example project
 
