@@ -44,52 +44,45 @@ Installation
 
   0. View the built project at <http://localhost:7755>
 
-  0. And when your ready to push to **github pages**
+Using Github Pages
+---
+
+  0. Go to your project
 
         cd my-project
         git checkout master
         
-        
-        # MAKE SURE everything is COMMITTED
-        # uncommited files will be DELETED
+  0. Build the latest documentation
 
-
-        cd mildoc
-        ./build.sh
-        mv mildoc/public/ /tmp/my-project_mildoc
-        
-        git symbolic-ref HEAD refs/heads/gh-pages
-        rm .git/index
-        git clean -fdx
-        mv /tmp/my-project_mildoc/* ./
-        
-        git add ./
-        git commit -m "initial commit"
-        git push origin -u gh-pages
-
-        # tag your documentation according to your current software
-        git tag docs-v1.0.0
-        git push --tags
-        
-  0. And when you want to **update your github pages**
-
-        # Build the latest docs from master
-        cd my-project
-        git checkout master
         cd mildoc
         ./build.sh
         rm -rf /tmp/my-project_mildoc
-        mv mildoc/public/ /tmp/my-project_mildoc
+        mv mildoc/public /tmp/my-project_mildoc
+
+  0. Create (or checkout) the `gh-pages` branch
+
+    MAKE SURE everything is COMMITTED uncommited files will be DELETED
+
+        git status
+        git symbolic-ref HEAD refs/heads/gh-pages
+        rm .git/index
+        git clean -fdx
         
-        # Replace the current docs with the latest
+    Or if you completed that step previously
+    
         git chekout gh-pages
-        git rm -f ./
+
+  0. Add the latest built docs
+
+        git rm -rf ./
         mv /tmp/my-project_mildoc/* ./
         git add ./
-        git commit -m "updated docs to corresponding v1.1.3 of software"
-        
-        # update your tag
-        git tag docs-v1.1.3
+        git commit -m "docs for v1.0.0"
+        git push origin -u gh-pages
+
+  0. Add a tag that corresponds to the software version
+
+        git tag docs-v1.0.0
         git push --tags
 
 
