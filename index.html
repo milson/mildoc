@@ -1,0 +1,167 @@
+<!DOCTYPE html><head><title>ACME Documentation</title><script src="./pakmanaged.js"></script><link rel="stylesheet" type="text/css" href="style.css"><link rel="stylesheet" type="text/css" media="print" href="print.css"></head><body><div id="header"><div class="top_wrap"><img id="logo" src="images/logo.png" alt="ACME"><div class="page_head">ACME API Documentation
+</div></div></div><div id="container"><!-- Yes, we know that tables are a no-no for style.--><!-- We have the technology--><!-- We can (and will) rebuild him--><table class="doc_columns"><tbody><tr><td class="menu_column"><div class="menu"><ul><li id="installation_mwrap" class="menu_major"><a href="#installation" class="top_style">Installation<ul><li class="menu_sub"><a href="#nodejs">NodeJS</a></li><li class="menu_sub"><a href="#example-project">Example Project</a></li></ul></a></li><li id="usage_mwrap" class="menu_major"><a href="#usage" class="top_style">Usage<ul><li class="menu_sub"><a href="#branding">Branding</a></li><li class="menu_sub"><a href="#publishing">Publishing</a></li><li class="menu_sub"><a href="#test-jade">test-jade</a></li></ul></a></li></ul></div></td><td class="content_column"><div data-map="installation" class="cwrapper"><h1 id="installation">Installation</h1><div id="nodejs" class="in_menu"><h2>NodeJS</h2><p>The documentation platform runs on Linux, OS X, and Windows using NodeJS.</p>
+
+<h3>Try this first</h3>
+
+<p>Download the NodeJS installer <a href="http://nodejs.org/#download">http://nodejs.org/#download</a> for OS X or Windows.</p>
+
+<h3>Ubuntu Linux (Terminal)</h3>
+
+<pre><code># To add the nodejs repositories to apt-<span class="keyword">get</span>
+sudo apt-<span class="keyword">get</span> install python-software-properties
+sudo add-apt-repository ppa:chris-lea/node.js
+sudo apt-<span class="keyword">get</span> update
+
+# Install NodeJS
+sudo apt-<span class="keyword">get</span> install nodejs</code></pre>
+
+<h3>Apple OS X (Terminal)</h3>
+
+<pre><code><span class="comment"># To install `brew`, the OS X package manager</span>
+/usr/bin/ruby -e &quot;$(curl -fsSL https:<span class="comment">//r</span>aw.github.com/gist/<span class="number">323731</span>)&quot;
+
+<span class="comment"># Install NodeJS</span>
+brew install node</code></pre>
+
+<h3>Windows (PowerShell)</h3>
+
+<pre><code><span class="preprocessor"># To install Chocolatey, the Windows package manager</span>
+Set-ExecutionPolicy Unrestricted
+iex ((<span class="keyword">new</span>-object net.webclient).DownloadString(&quot;http:<span class="comment">//bit.ly/psChocInstall&quot;))</span>
+
+<span class="preprocessor"># Install NodeJS</span>
+cinst nodejs</code></pre></div><div id="example-project" class="in_menu"><h2>Example Project</h2><p>This site itself is an example project.</p>
+
+<p>Before you go getting fancy, you should make sure that everything is installed properly and working as expected.</p>
+
+<h3>Download this project (includes example site)</h3>
+
+<p>You can download this project in either <code>git</code> (preferred), <code>tgz</code>, or <code>zip</code> format.</p>
+
+<h4>git</h4>
+
+<pre><code>git clone git:<span class="comment">//g</span>ithub.com/milson/mildoc.git</code></pre>
+
+<h4>tgz</h4>
+
+<pre><code>wget https:<span class="comment">//g</span>ithub.com/milson/mildoc/tarball/master -O mildoc.tgz
+mkdir mildoc
+mv milson-mildoc-* mildoc</code></pre>
+
+<h4>zip</h4>
+
+<pre><code>wget https:<span class="comment">//g</span>ithub.com/milson/mildoc/zipball/master -O mildoc.zip
+unzip mildoc.zip
+mv milson-mildoc-* mildoc</code></pre>
+
+<h3>Build</h3>
+
+<pre><code>cd mildoc
+./build.sh
+cd <span class="keyword">public</span>
+served <span class="number">7755</span> &amp;</code></pre>
+
+<h3>View</h3>
+
+<p>You should now be able to open your web browser to <a href="http://localhost:7755">http://localhost:7755</a> and see
+the site almost exactly as it appears on <a href="http://milson.github.com/mildoc">http://milson.github.com/mildoc</a>.</p>
+
+<p>If you've gotten this far, then everything is working correctly. Congratulations!</p></div></div><div data-map="usage" class="cwrapper"><h1 id="usage">Usage</h1><div id="branding" class="in_menu"><h2>Branding</h2><p>Presently, this site is branded for ACME.</p>
+
+<p>Hopefully your company isn't called ACME, however.</p>
+
+<p>There are a number of files that you should change to reflect your brand.</p>
+
+<ul><li><code>src/index.jade</code> - the wireframe that holds the site - title, header, footer</li><li><code>src/stylesheets/layout.less</code> - the color scheme, fonts, etc</li><li><code>src/<span class="keyword">static</span>/favicon.ico</code> - the icon that shows up in a browser tab</li><li><code>src/<span class="keyword">static</span>/images/logo.png</code> - the icon that shows up in a browser tab</li><li><code>src/lib/index.js</code> - the JavaScript that controlls the menu system</li></ul>
+
+<h3>jade</h3>
+
+<p><code>jade</code> is an HTML preprocessor.</p>
+
+<p>It allows us to create a very simple site from somewhat dynamic content (like PHP),
+but jade is done right. It only runs when building the site, not when someone visits
+the site.</p>
+
+<p>You can host a site built with jade (or haml) or your server as regular files, without
+any special considerations. It can also be hosted for free through GitHub pages.</p>
+
+<h3>less</h3>
+
+<p><code>less</code> is a CSS preprocessor.</p>
+
+<p>It makes it easy to compile multiple less sheets into a single css document.</p>
+
+<p>Because it supports variables, it's also easy to recomplie a site with a 
+different theme editing a single document.</p>
+
+<h3>pakmanager</h3>
+
+<p><code>pakmanager</code> is a JavaScript preprocessor.</p>
+
+<p>It uses normal JavaScript, but also provides the CommonJS module functionality
+through <code>require</code>. You can use it to install freely available JavaScript modules
+directly from <code>npm</code>.</p></div><div id="publishing" class="in_menu"><h2>Publishing</h2><p>It's very easy to publish documentation with MILDOC.</p>
+
+<p>The gist of it is that you put files on the filesystem and then re-run <code>build.sh</code>.</p>
+
+<h3>Meta Data</h3>
+
+<p>Go ahead and click the link entitled <code>Publishing</code> in the menu on your left.</p>
+
+<p>Notice that up in the URL you see something like <a href="http://milson.github.com/mildoc#publishing">http://milson.github.com/mildoc#publishing</a>.</p>
+
+<p>The <code>title</code> of the link is &quot;Publishing&quot; (uppercase 'P'),
+but the <code>id</code> of the link is &quot;publishing&quot; (lowercase 'p').</p>
+
+<p>For every document, such as <code>src/usage/publishing.md</code>,
+there is a <code>title</code> and <code>id</code>.
+If you don't specify either, then the default behavior is to use
+the filename without the <code>.md</code> suffix for <code>title</code> and then the
+<code>id</code> will be the filename, but with any non-alphanumeric characters
+replaced with an <code>_</code> (underscore).</p>
+
+<p>MILDOC supports two tiers in a documentation page - a <code><span class="keyword">group</span></code> and a <code>document</code>.</p>
+
+<p>The defaults for both of these can be edited by creating a <code>.yml</code> file of
+the same name as the folder or file.</p>
+
+<p>So if you created a file that you wanted to have a title with a special character
+such as <code>/</code> or <code>&amp;</code>, then you can edit the <code>title</code> meta-data.</p>
+
+<h3>Groups</h3>
+
+<p>Look over at the left menu again.</p>
+
+<p>&quot;Usage&quot; is a group. It represents a folder <code>src/usage</code>.
+The file that overwrites the <code>title</code> and <code>id</code> for this group is <code>src/usage.yml</code>.</p>
+
+<p>For any group (or document), the default <code>title</code>, <code>id</code>, and other meta data can
+be overwritten using a file of the same name, but ending in <code>.yml</code>.</p>
+
+<p>The file looks like this:</p>
+
+<pre><code>---
+  title: Usage
+  id: usage</code></pre>
+
+<h3>Documents</h3>
+
+<p>Documents can have their meta data set in the same way that groups can,
+however, they can also be overwritten by appending the YAML to the beginning
+of the document.</p>
+
+<p>This is called YAML Front Matter, and it looks like this:</p>
+
+<pre><code>---
+  title: Publishing
+  id: publishing
+---</code></pre>
+
+<p>Notice the extra <code>---</code> at the end of the YAML. This is part of the front matter.
+It lets us know when the Front Matter ends and the document begins.</p>
+
+<p>So if you have a file like <code>src/cooking/peaches-and-cream.md</code>,
+you could overwrite the <code>title</code> to be &quot;Peaches &amp; Cream&quot; by creating
+<code>src/cooking/peaches-and-cream.yml</code> or appending the Front Matter to
+the beginning of the file.</p></div><div id="test-jade" class="in_menu"><h2>test-jade</h2><h3>jade test</h3></div></div></td></tr></tbody></table></div><div id="footer"><div class="top_wrap"><div id="flogo"><img src="images/logo.png" alt="ACME"><div id="copyright">© YYYY ACME</div></div><ul id="footie_pajamas"><li><a href="http://acme.com/">ACME Home</a></li><li>Email: dev-support@acme.com
+</li></ul></div></div></body>
