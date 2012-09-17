@@ -66,7 +66,9 @@ Using Github Pages
         git clean -fdx
         
 
-        # Or if you completed that step previously
+
+    Or if you completed that step previously
+
         git chekout gh-pages
 
   0. Add the latest built docs
