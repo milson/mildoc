@@ -66,10 +66,12 @@ served <span class="number">7755</span></code></pre></li><li><p>View the built p
 git checkout master</code></pre></li><li><p>Build the latest documentation</p><pre><code>cd mildoc
 ./build.sh
 rm -rf /tmp/my-project_mildoc
-mv mildoc/<span class="keyword">public</span> /tmp/my-project_mildoc</code></pre></li><li><p>Create (or checkout) the <code>gh-pages</code> branch</p><pre><code><span class="comment"># MAKE SURE everything is COMMITTED uncommited files will be DELETED</span></code></pre><p>    git status
-    git symbolic-ref HEAD refs/heads/gh-pages
-    rm .git/index
-    git clean -fdx</p><pre><code><span class="comment"># Or if you completed that step previously</span></code></pre><p>    git chekout gh-pages</p></li><li><p>Add the latest built docs</p><pre><code>git rm -rf ./
+mv mildoc/<span class="keyword">public</span> /tmp/my-project_mildoc</code></pre></li><li><p>Create (or checkout) the <code>gh-pages</code> branch</p><pre><code># MAKE SURE everything <span class="keyword">is</span> COMMITTED uncommited files will be DELETED
+git status
+git symbolic-<span class="keyword">ref</span> HEAD refs/heads/gh-pages
+rm .git/index
+git clean -fdx</code></pre><p>    # Or if you completed that step previously
+    git chekout gh-pages</p></li><li><p>Add the latest built docs</p><pre><code>git rm -rf ./
 mv /tmp/my-project_mildoc/* ./
 git add ./
 git commit -m &quot;docs <span class="keyword">for</span> v1.<span class="number">0.0</span>&quot;
