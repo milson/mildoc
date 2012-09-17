@@ -60,7 +60,6 @@ Using Github Pages
   0. Create (or checkout) the `gh-pages` branch
 
         # MAKE SURE everything is COMMITTED uncommited files will be DELETED
-
         git status
         git symbolic-ref HEAD refs/heads/gh-pages
         rm .git/index
@@ -68,7 +67,6 @@ Using Github Pages
         
 
         # Or if you completed that step previously
-    
         git chekout gh-pages
 
   0. Add the latest built docs
