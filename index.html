@@ -70,8 +70,7 @@ mv mildoc/<span class="keyword">public</span> /tmp/my-project_mildoc</code></pre
 git status
 git symbolic-<span class="keyword">ref</span> HEAD refs/heads/gh-pages
 rm .git/index
-git clean -fdx</code></pre><p>    # Or if you completed that step previously
-    git chekout gh-pages</p></li><li><p>Add the latest built docs</p><pre><code>git rm -rf ./
+git clean -fdx</code></pre><p>Or if you completed that step previously</p><pre><code>git chekout gh-pages</code></pre></li><li><p>Add the latest built docs</p><pre><code>git rm -rf ./
 mv /tmp/my-project_mildoc/* ./
 git add ./
 git commit -m &quot;docs <span class="keyword">for</span> v1.<span class="number">0.0</span>&quot;
